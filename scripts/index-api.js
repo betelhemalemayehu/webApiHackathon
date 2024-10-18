@@ -28,16 +28,32 @@ function displayPokemon(pokemon) {
 
   // Update the name in the HTML
   pokemonNameElement.textContent = `Name: ${pokemonName}`;
+  pokemonNameElement.style.display = "none"; // Initially hide the name
 
   // Update the image in the HTML and apply the image-wrapper class for the overlay
   pokemonImageContainer.innerHTML = `
-      <div class="image-wrapper">
-        <img src="${pokemonImageUrl}" alt="${pokemonName}" class="pokemon-image" />
-      </div>`;
+        <div class="image-wrapper">
+          <img src="${pokemonImageUrl}" alt="${pokemonName}" class="pokemon-image" style="filter: brightness(0)" />
+        </div>`;
 }
 
-// Main function to initialize the process
-async function goLive() {
+// Function to reveal the Pokémon and remove the overlay
+function reveal() {
+  // Find the Pokémon image and name
+  const pokemonImage = document.querySelector(".pokemon-image");
+  const pokemonName = document.querySelector(".pokemon__name");
+
+  // Remove the overlay by resetting the filter
+  if (pokemonImage) {
+    pokemonImage.style.filter = "none"; // Remove the overlay (CSS filter)
+  }
+  if (pokemonName) {
+    pokemonName.style.display = "flex"; // Show the name of the Pokémon
+  }
+}
+
+// Function to load a new random Pokémon
+async function loadNewPokemon() {
   const randomPokemonNumber = getRandomPokemonNumber();
   const pokemonData = await fetchPokemonData(randomPokemonNumber);
 
@@ -46,5 +62,22 @@ async function goLive() {
   }
 }
 
+// Main function to initialize the process on page load
+async function goLive() {
+  await loadNewPokemon(); // Load an initial random Pokémon
+}
+
 // Run the goLive function when the page loads
 window.addEventListener("DOMContentLoaded", goLive);
+
+// Add an event listener for the "Show Me!" button to reveal the hidden Pokémon
+const revealButton = document.querySelector(".button");
+if (revealButton) {
+  revealButton.addEventListener("click", reveal); // Remove overlay when button is clicked
+}
+
+// Add an event listener for the "Next" button to load a new random Pokémon
+const nextButton = document.querySelector(".button2");
+if (nextButton) {
+  nextButton.addEventListener("click", loadNewPokemon); // Load new Pokémon when the button is clicked
+}
