@@ -1,0 +1,74 @@
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0 3rem 0;
+}
+
+.site-logo__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #3c5aa6;
+  width: 35rem;
+  height: 42rem;
+}
+
+.pokemon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokemon__name {
+  display: flex;
+  width: 35rem;
+  height: 2rem;
+  border: 1px solid red;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto";
+  font-size: 2rem;
+}
+
+.pokemon__data {
+  border: 2px solid green;
+  height: 8rem;
+  width: 35rem;
+  margin-top: 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid orange;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 10rem;
+  border-radius: 0.3125rem;
+  background-color: #3c5aa6;
+  color: white;
+  font-family: "Roboto";
+  font-size: 1.5rem;
+}
