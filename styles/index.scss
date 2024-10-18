@@ -35,19 +35,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  //   border: 4px solid yellow;
 }
 
 .pokemon__name {
   display: flex;
   width: 35rem;
   height: 2rem;
-  //   border: 1px solid red;
   justify-content: center;
   align-items: center;
   font-family: "Roboto";
   font-size: 2rem;
   display: none;
+  text-transform: capitalize;
 }
 
 .pokemon__data {
@@ -62,8 +61,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
-  //   border: 2px solid orange;
 }
 
 .button {
@@ -83,13 +80,23 @@
 
 .pokemon-image {
   filter: brightness(0);
+  //   height: auto;
+  //   width: 80%;
 }
 
+// .image-wrapper {
+//   height: auto;
+//   width: 60%;
+// }
+
 .button2 {
-  background-color: silver;
+  //   background-color: ;
   color: black;
   height: 1.5rem;
   border-radius: 0.3125rem;
-  height: 2rem;
-  width: 3rem;
+  height: 3rem;
+  width: 10rem;
+  margin-top: 2rem;
+  font-family: "Roboto";
+  font-size: 1.5rem;
 }

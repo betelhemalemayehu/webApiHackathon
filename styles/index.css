@@ -46,6 +46,7 @@
   font-family: "Roboto";
   font-size: 2rem;
   display: none;
+  text-transform: capitalize;
 }
 
 .pokemon__data {
@@ -60,7 +61,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
 }
 
 .button {
@@ -82,10 +82,12 @@
 }
 
 .button2 {
-  background-color: silver;
   color: black;
   height: 1.5rem;
   border-radius: 0.3125rem;
-  height: 2rem;
-  width: 3rem;
+  height: 3rem;
+  width: 10rem;
+  margin-top: 2rem;
+  font-family: "Roboto";
+  font-size: 1.5rem;
 }/*# sourceMappingURL=index.css.map */
