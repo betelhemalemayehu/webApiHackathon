@@ -20,7 +20,7 @@ This project is a web-based Pokémon guessing game inspired by the classic "Who'
 
 ## Project Overview
 
-This project was created during the BrainStation Web API Hackathon. Our goal was to create an interactive, responsive, and user-friendly Pokémon guessing game using modern web technologies. We focused on seamless API integration, clean UI design, and enhancing the user experience through animations and interactivity.
+This project was created during the 5 hour BrainStation Web API Hackathon. Our goal was to create an interactive, responsive, and user-friendly Pokémon guessing game using modern web technologies. We focused on seamless API integration, clean UI design, and enhancing the user experience through animations and interactivity.
 
 ---
 
