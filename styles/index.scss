@@ -1,22 +1,72 @@
-.header-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 3rem 0 3rem 0;
+// Global reset and body settings
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.site-logo__container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.card-container {
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f0f8ff; // Light blue background
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 50vh;
+  justify-content: center; // Center content vertically
+  height: 100vh; // Full height of the viewport
+  margin: 0;
+  padding: 0;
+}
+
+// Header styling (align center horizontally)
+.header-container {
+  display: flex;
+  justify-content: center; // Center horizontally
+  align-items: center;
+  width: 100%; // Ensure the header spans the full width
+  padding: 1rem 0; // Padding for spacing
+}
+
+.site-logo__container img {
+  max-width: 100%;
+  height: auto;
+  width: 720px; // For larger screens
+  padding: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .site-logo__container img {
+    width: 100%; // Ensure the image scales down to fit smaller screens
+    height: auto; // Maintain aspect ratio
+  }
+}
+
+// Main content container (scaling down by 25% and center alignment)
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Center content horizontally
+  justify-content: center; // Center content vertically
+  width: 100%;
+  max-width: 1200px;
+  padding: 1rem;
+  transform: scale(0.75); // Scale the content down by 25%
+  transform-origin: center; // Ensure scaling happens from the center
+}
+
+@media (max-width: 768px) {
+  main {
+    transform: scale(
+      0.65
+    ); // Further scaling down for mobile screens to fit content
+  }
+}
+
+// Card and Image Styling (centered image)
+.card-container {
+  display: flex;
+  justify-content: center; // Center image horizontally
+  align-items: center; // Center image vertically
+  margin-bottom: 1.5rem;
 }
 
 .card {
@@ -24,79 +74,96 @@
   justify-content: center;
   align-items: center;
   border: 4px solid #3c5aa6;
-  width: 35rem;
-  height: 42rem;
+  width: 100%;
+  max-width: 35rem;
+  height: auto;
   border-radius: 5px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
 }
 
-.pokemon-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  filter: brightness(0); // Apply filter initially
 }
 
+// Pokemon name styling (centered and visible initially)
 .pokemon__name {
-  display: flex;
-  width: 35rem;
-  height: 2rem;
-  justify-content: center;
-  align-items: center;
-  font-family: "Roboto";
   font-size: 2rem;
-  display: none;
+  font-weight: 700;
   text-transform: capitalize;
+  text-align: center;
+  margin: 1rem 0;
 }
 
-.pokemon__data {
-  border: 2px solid green;
-  height: 8rem;
-  width: 35rem;
-  margin-top: 0;
-}
-
+// Buttons container (centered buttons)
 .button-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; // Center buttons vertically
+  align-items: center; // Center buttons horizontally
+  gap: 1.5rem;
 }
 
+// Button styles
 .button {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  height: 3rem;
-  width: 10rem;
+  height: 3.5rem;
+  width: 12rem;
   border-radius: 0.3125rem;
-  background-color: #3c5aa6;
-  color: white;
-  font-family: "Roboto";
-  font-size: 1.5rem;
-  margin-top: 2rem;
+  background-color: #ffcc01; // Bright yellow color to grab attention
+  color: #3c5aa6; // Darker blue text for contrast
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.pokemon-image {
-  filter: brightness(0);
-  //   height: auto;
-  //   width: 80%;
+.button:hover {
+  background-color: #ffb700; // Slightly darker yellow on hover
 }
 
-// .image-wrapper {
-//   height: auto;
-//   width: 60%;
-// }
+.button:active {
+  transform: scale(0.98); // Small scaling effect on click
+}
 
+// Next Button styling (secondary action)
 .button2 {
-  //   background-color: ;
-  color: black;
-  height: 1.5rem;
-  border-radius: 0.3125rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 3rem;
   width: 10rem;
-  margin-top: 2rem;
-  font-family: "Roboto";
-  font-size: 1.5rem;
+  border-radius: 0.3125rem;
+  background-color: #e0e0e0; // Subtle gray background for secondary action
+  color: #333; // Darker text for contrast
+  font-family: "Roboto", sans-serif;
+  font-size: 1.4rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.button2:hover {
+  background-color: #d4d4d4; // Slightly darker gray on hover
+}
+
+.button2:active {
+  transform: scale(0.98); // Small scaling effect on click
+}
+
+@media (max-width: 768px) {
+  // Adjust buttons for smaller screens
+  .button,
+  .button2 {
+    width: 8rem;
+    font-size: 1.4rem;
+  }
 }

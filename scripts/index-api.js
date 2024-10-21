@@ -17,38 +17,33 @@ async function fetchPokemonData(pokemonNumber) {
 
 // Function to display the Pokémon's name and image in the HTML
 function displayPokemon(pokemon) {
-  // Find the HTML elements where the data will be displayed
   const pokemonNameElement = document.querySelector(".pokemon__name");
-  const pokemonImageContainer = document.querySelector(".card");
+  const pokemonImageContainer = document.querySelector(".image-wrapper");
 
-  // Get the data for the Pokémon's name and image URL
   const pokemonName = pokemon.forms[0].name;
   const pokemonImageUrl =
     pokemon.sprites.other["official-artwork"].front_default;
 
   // Update the name in the HTML
-  pokemonNameElement.textContent = `Name: ${pokemonName}`;
+  pokemonNameElement.textContent = `${pokemonName}`;
   pokemonNameElement.style.display = "none"; // Initially hide the name
 
-  // Update the image in the HTML and apply the image-wrapper class for the overlay
+  // Update the image in the HTML
   pokemonImageContainer.innerHTML = `
-        <div class="image-wrapper">
-          <img src="${pokemonImageUrl}" alt="${pokemonName}" class="pokemon-image" style="filter: brightness(0)" />
-        </div>`;
+    <img src="${pokemonImageUrl}" alt="${pokemonName}" class="pokemon-image" style="filter: brightness(0)" />
+  `;
 }
 
 // Function to reveal the Pokémon and remove the overlay
 function reveal() {
-  // Find the Pokémon image and name
   const pokemonImage = document.querySelector(".pokemon-image");
   const pokemonName = document.querySelector(".pokemon__name");
 
-  // Remove the overlay by resetting the filter
   if (pokemonImage) {
     pokemonImage.style.filter = "none"; // Remove the overlay (CSS filter)
   }
   if (pokemonName) {
-    pokemonName.style.display = "flex"; // Show the name of the Pokémon
+    pokemonName.style.display = "block"; // Show the name of the Pokémon
   }
 }
 
@@ -62,22 +57,19 @@ async function loadNewPokemon() {
   }
 }
 
-// Main function to initialize the process on page load
-async function goLive() {
-  await loadNewPokemon(); // Load an initial random Pokémon
-}
+// Initialize the page by loading a Pokémon when the DOM content is fully loaded
+window.addEventListener("DOMContentLoaded", async () => {
+  await loadNewPokemon(); // Load an initial Pokémon
 
-// Run the goLive function when the page loads
-window.addEventListener("DOMContentLoaded", goLive);
+  const revealButton = document.querySelector(".button");
+  const nextButton = document.querySelector(".button2");
 
-// Add an event listener for the "Show Me!" button to reveal the hidden Pokémon
-const revealButton = document.querySelector(".button");
-if (revealButton) {
-  revealButton.addEventListener("click", reveal); // Remove overlay when button is clicked
-}
+  // Add event listeners for buttons
+  if (revealButton) {
+    revealButton.addEventListener("click", reveal);
+  }
 
-// Add an event listener for the "Next" button to load a new random Pokémon
-const nextButton = document.querySelector(".button2");
-if (nextButton) {
-  nextButton.addEventListener("click", loadNewPokemon); // Load new Pokémon when the button is clicked
-}
+  if (nextButton) {
+    nextButton.addEventListener("click", loadNewPokemon);
+  }
+});
